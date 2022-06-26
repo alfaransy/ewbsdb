@@ -107,7 +107,7 @@ async def resume(_, message: Message):
         )
 
 
-@app.on_message(command(["end", "oe"]) & other_filters)
+@app.on_message(command(["end", "oe", "هس", "اسكت", "اوكف"]) & other_filters)
 async def stop(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
@@ -135,7 +135,7 @@ async def stop(_, message: Message):
         )
 
 
-@app.on_message(command(["skip", "os"]) & other_filters)
+@app.on_message(command(["skip", "os", "تخطي", "التالي"]) & other_filters)
 async def skip(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
@@ -169,11 +169,11 @@ async def skip(_, message: Message):
                 ),
             )
             await message.reply_text(
-                f"⏭ __**Skipped to the next song.**__\n│\n╰ Music skipped by {checking}"
+                f"⏭ __**ابشر بعزك تم التخطي**__\n│\n╰ مــــن {checking}"
             )
 
 
-@app.on_message(filters.command(["cleandb", "oc"]))
+@app.on_message(filters.command(["/cleandb", "/oc"]))
 async def stop_cmd(_, message):
     if message.sender_chat:
         return await message.reply_text(

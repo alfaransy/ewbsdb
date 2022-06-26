@@ -312,10 +312,10 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="nonabout"),
+            InlineKeyboardButton("🖥 ¦ التحكم", callback_data="cbmenu"),
+            InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
         ],[
-            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
+            InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -353,10 +353,10 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="nonabout"),
+            InlineKeyboardButton("🖥 ¦ التحكم", callback_data="cbmenu"),
+            InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
         ],[
-            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
+            InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -448,7 +448,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "**Don't be a crazy 🙅🏻 Give me a song name to play!\n\nExample \n/play hamanwa mere**"
+                "**عليك كتابة اي شيئ لتشغيل  او بل رد ع ملف صوتي عزيزي 🙂**"
             )
         await lel.edit("**🔍 | Finding...**")
         query = message.text.split(None, 1)[1]
@@ -485,7 +485,7 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("🥇 ¦ الــكروب", callback_data="cbmenu"),
+            InlineKeyboardButton("🖥 ¦ التحكم", callback_data="cbmenu"),
             InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
         ],[
             InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
