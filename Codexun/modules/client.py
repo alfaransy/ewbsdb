@@ -289,7 +289,7 @@ async def skipvc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Only admin with manage voice chat permission can do this.
+يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.
 """,
             show_alert=True,
         )
@@ -311,7 +311,7 @@ Only admin with manage voice chat permission can do this.
             )
             await calls.pytgcalls.leave_group_call(chat_id)
             return
-            await CallbackQuery.answer("Voice Chat Skip.!", show_alert=True)     
+            await CallbackQuery.answer("تخطي الدردشة.!", show_alert=True)     
 
 @Client.on_callback_query(filters.regex("pausevc"))
 async def pausevc(_, CallbackQuery):
@@ -320,7 +320,7 @@ async def pausevc(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -329,13 +329,13 @@ async def pausevc(_, CallbackQuery):
         if await is_music_playing(chat_id):
             await music_off(chat_id)
             await calls.pytgcalls.pause_stream(chat_id)
-            await CallbackQuery.answer("Music Paused Successfully.", show_alert=True)
+            await CallbackQuery.answer("تم ايقاف الاغنيه مؤقتا.", show_alert=True)
             
         else:
-            await CallbackQuery.answer(f"Nothing is playing on voice chat!", show_alert=True)
+            await CallbackQuery.answer(f"لايوجد شيئ شغال!", show_alert=True)
             return
     else:
-        await CallbackQuery.answer(f"Nothing is playing in on voice chat!", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال!", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("resumevc"))
@@ -346,7 +346,7 @@ async def resumevc(_, CallbackQuery):
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
             """
-Only admin with manage voice chat permission can do this.
+يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.
 """,
             show_alert=True,
         )
@@ -355,7 +355,7 @@ Only admin with manage voice chat permission can do this.
     if await is_active_chat(chat_id):
         if await is_music_playing(chat_id):
             await CallbackQuery.answer(
-                "Nothing is paused in the voice chat.",
+                "لايوجد شيئ شغال.",
                 show_alert=True,
             )
             return
@@ -375,7 +375,7 @@ async def stopvc(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -393,7 +393,7 @@ async def stopvc(_, CallbackQuery):
         rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
         await CallbackQuery.message.reply(f"**• Music successfully stopped by {rpk}.**")
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 @Client.on_callback_query(filters.regex("cleandb"))
 async def cleandb(_, CallbackQuery):
@@ -402,7 +402,7 @@ async def cleandb(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
@@ -426,33 +426,33 @@ async def cleandb(_, CallbackQuery):
         
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("cbcmnds"))
 async def cbcmnds(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**{BOT_NAME} Bot Commands 💡**
+        f"""**الاوامر الاساسية 💡**
 
 • /play هذا الامر
 - مع اسم الاغنيه لتشغيل
 
 • /pause 
-- For pausing music
+- ايقاف الموسيقى
 
 • /resume 
-- For resuming music
+- استئناف التشغيل
 
 • /skip 
 - لتخطي الاغنيه
 
 • /search (song name) 
-- For searching music
+- للبحث عن موسيقى
 
 • /song 
-- For download music
+- تحميل اي شيئ
 
-Powered by **@{UPDATE}** !""",
+قناة البوت **@{UPDATE}** !""",
         reply_markup=InlineKeyboardMarkup(
             [
               [
@@ -467,34 +467,34 @@ Powered by **@{UPDATE}** !""",
 @Client.on_callback_query(filters.regex("cbowncmnds"))
 async def cbowncmnds(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Owner & Sudo Commands 💡**
+        f"""**اوامر مطورين البوت 💡**
 
 • /broadcast (massage)
-- Broadcast msg through bot
+- بث اذاعه من خلال البوت
 
 • /gcast (massage) 
-- Broadcast msg with pin
+- بث اذاعه بالتثبيت 
 
 • /restart 
-- Restart bot from server
+- عمل ريستات للبوت من الخادم
 
 • /exec
-- Execute any code
+- نفذ اي كود
 
 • /stats
-- Get all statistics
+- الحصول على احصائيات بوتك
 
 • /ping 
-- Pinging uptime
+- بنك البوت 
 
 • /update
-- Update bot with latest version
+- تحديث البوت الى الاخير
 
 • /gban or /ungban
-- Global Ban system
+- نظام الحظر العالمي
 
 • /leaveall 
-- leaving assistant from all chats
+- لمغادرة المساعد من الجميع
 
 قناة البوت **@{UPDATE}** !""",
         reply_markup=InlineKeyboardMarkup(
@@ -513,7 +513,7 @@ async def cbabout(_, query: CallbackQuery):
 
 اي شيئ في هذه القناة مجاني ولقادم اعظم سوف تشوف شيئ لاترا في الخارج عزيزي المستخدم ماذا تنتضر ادخل ونصب اي شيئ تريده.
 
-**مطور البوت :- @{ASSUSERNAME}**""",
+**الحساب المساعد :- @{ASSUSERNAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
               [
@@ -529,22 +529,22 @@ async def cbabout(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbstgs"))
 async def cbstgs(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**لاعليك بهذا الزر اخرج من هنا 💡**
+        f"""**اليك ازرار القائمة 💡**
 
-After you played your song some menu buttons will be comes to manage your music playing on voice chat. They are as follows :
+بعد تشغيل الاغنيه عزيزي سوف تظهر بعض ازراز قائمة تشغيل الموسيقى على الدردشة الصوتية  اتبع الازراز :
 
 • ▷ 
-- Resume Music
+- استئناف الموسيقى
 • II 
-- Pause Music
+- ايقاف الموسقى
 • ▢  
-- End Music
+- انهاء الموسيقى
 • ‣‣ 
-- Skip Music
+- تخطي الموسيقى
 
-You can also open this menu through /menu and /settings command.
+ يمكنك ايضا فتح هذه القائمة بستخدام امر /settings .
 
-**Only admins can use this buttons 📍**""",
+**يمكن الى الذي لديه حق الوصول لقيام ذالك 📍**""",
         reply_markup=InlineKeyboardMarkup(
             [
             [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbcmnds")]]
@@ -650,7 +650,7 @@ async def closed(_, query: CallbackQuery):
     permission = "can_restrict_members"
     if permission not in permissions:
         return await query.answer(
-            "You don't have enough permissions to perform this action.",
+            "ليس لديك الحق في الوصول لهذا الاجراء.",
             show_alert=True,
         )
     await query.message.delete()
@@ -658,10 +658,10 @@ async def closed(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cbmenu"))
 async def cbmenu(_, query: CallbackQuery):
     if query.message.sender_chat:
-        return await query.answer("you're an Anonymous Admin !\n\n» revert back to user account from admin rights.")
+        return await query.answer("انت مسؤول مجهول !\n\n» العودة الى حساب المستخدم من حقوق المسؤول.")
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("Only admins cam use this..!", show_alert=True)
+        return await query.answer("يمكن لمن لدي حق الوصول لعمل هذا..!", show_alert=True)
     chat_id = query.message.chat.id
     if is_music_playing(chat_id):
           await query.edit_message_text(
@@ -670,7 +670,7 @@ async def cbmenu(_, query: CallbackQuery):
               reply_markup=menu_keyboard
          )
     else:
-        await query.answer("nothing is currently streaming", show_alert=True)
+        await query.answer("لايوجد شيئ شغال", show_alert=True)
 
 
 
@@ -681,20 +681,20 @@ async def high(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in high quality!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بجودة عالية!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Quality 🔊**\n\nChoose your option from given below to manage audio quality.",
+        f"**ادارة مستوى الصوت 🔊**\n\nاختر خيارك من المعطى ادنا لأدارة جودة الصوت.",
         reply_markup=highquality_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("low"))
@@ -704,20 +704,20 @@ async def low(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in low quality!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بجودة منخفضه!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Quality 🔊**\n\nChoose your option from given below to manage audio quality.",
+        f"**ادارة مستوى الصوت 🔊**\n\nاختر خيارك من المعطى ادنا لأدارة جودة الصوت.",
         reply_markup=lowquality_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 @Client.on_callback_query(filters.regex("medium"))
 async def medium(_, CallbackQuery):
@@ -726,20 +726,20 @@ async def medium(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in medium quality!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بجودة متوسطة!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Quality 🔊**\n\nChoose your option from given below to manage audio quality.",
+        f"**ادارة مستوى الصوت 🔊**\n\n اختر خيارك من المعطى ادنا لأدارة جودة الصوت.",
         reply_markup=mediumquality_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 @Client.on_callback_query(filters.regex("fifth"))
 async def fifth(_, CallbackQuery):
@@ -748,20 +748,20 @@ async def fifth(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 200% volume!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بحجم 200!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**ادارة مستوى الصوت 🔊**\n\nI اذا كنت تريد ادارة مستوى الصوت من خلال الازراز فقط قم بتعيين المساعد اولا.",
         reply_markup=fifth_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 @Client.on_callback_query(filters.regex("fourth"))
 async def fourth(_, CallbackQuery):
@@ -770,20 +770,20 @@ async def fourth(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming 150 volume!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بحجم 150!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**ادارة مستوى الصوت 🔊**\n\nI اذا كنت تريد ادارة مستوى الصوت من خلال الازراز فقط قم بتعيين المساعد اولا.",
         reply_markup=fourth_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 @Client.on_callback_query(filters.regex("third"))
 async def third(_, CallbackQuery):
@@ -792,20 +792,20 @@ async def third(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 100% volume!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بحجم 100!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"** ادارة مستوى الصوت 🔊**\n\nI اذا كنت تريد ادارة مستوى الصوت من خلال الازراز فقط قم بتعيين المساعد اولا.",
         reply_markup=third_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("second"))
@@ -815,20 +815,20 @@ async def second(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 50% volume!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بحجم 50!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**ادارة مستوى الصوت 🔊**\n\nI اذا كنت تريد ادارة مستوى الصوت من خلال الازرار فقط قم بتعيين مدير المساعد اولا.",
         reply_markup=second_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("first"))
@@ -838,20 +838,20 @@ async def first(_, CallbackQuery):
     )
     if not a.can_manage_voice_chats:
         return await CallbackQuery.answer(
-            "Only admin with manage voice chat permission can do this.",
+            "يمكن فقط الذي لدي الحق في التحكم في الروبوت لقيام بذالك.",
             show_alert=True,
         )
     CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
             
-        await CallbackQuery.answer("Now streaming in 20% volume!", show_alert=True)
+        await CallbackQuery.answer("يتدفقون الان بحجم 20!", show_alert=True)
         await CallbackQuery.edit_message_text(
-        f"**Manage Audio Volume 🔊**\n\nIf you want to manage volume through buttons then make a assistant Admin first.",
+        f"**ادارة مستوى الصوت 🔊**\n\nI ازا كنت تريد ادارة مستوى الصوت من خلال الازرار فقط قم بتعيين مدير مساعد اولا.",
         reply_markup=first_keyboard
     )
     else:
-        await CallbackQuery.answer(f"Nothing is playing on voice chat.", show_alert=True)
+        await CallbackQuery.answer(f"لايوجد شيئ شغال.", show_alert=True)
 
 @Client.on_callback_query(filters.regex("nonabout"))
 async def nonabout(_, query: CallbackQuery):
@@ -883,5 +883,5 @@ async def dbconfirm(_, query: CallbackQuery):
               reply_markup=dbclean_keyboard
          )
     else:
-        await query.answer("nothing is currently streaming", show_alert=True)
+        await query.answer("لاشيئ يشتغل حاليا", show_alert=True)
 
