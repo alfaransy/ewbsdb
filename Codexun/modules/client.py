@@ -85,7 +85,7 @@ def others_markup(videoid, user_id):
             InlineKeyboardButton(text="‣‣I", callback_data=f"skipvc"),
             InlineKeyboardButton(text="▢", callback_data=f"stopvc"),
         ],[
-            InlineKeyboardButton(text="Manage", callback_data=f"cls"),
+            InlineKeyboardButton(text="مسح", callback_data=f"cls"),
         ],
         
     ]
@@ -461,7 +461,7 @@ Powered by **@{UPDATE}** !""",
                     InlineKeyboardButton(
                         "التـــالي", callback_data="cbowncmnds")
                 ],
-              [InlineKeyboardButton("🔙  رجــوع", callback_data="cbhome")]]
+              [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbhome")]]
         ),
     )
 @Client.on_callback_query(filters.regex("cbowncmnds"))
@@ -500,7 +500,7 @@ async def cbowncmnds(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [
               
-              [InlineKeyboardButton("🔙  رجـــوع", callback_data="cbcmnds")]]
+              [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbcmnds")]]
         ),
     )
 
@@ -509,19 +509,19 @@ async def cbabout(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""**About {BOT_NAME} Bot 💡**
 
-**[{BOT_NAME}](https://t.me/{BOT_USERNAME})** Music Bot is the bot designed by **@{UPDATE}** for playing a high quality and unbreakable music in your groups voice chat.
+**[{BOT_NAME}](https://t.me/{BOT_USERNAME})** انا بوت تدفق الاغاني قناتنا  **@{UPDATE}** يمكنك تنصيب من قناتنا تنصيبات ميوزك وتليون مجانيه لاداعي للفلوس
 
-This bot helps you to play music, to search music from youtube and to download music from youtube server and many more features related to telegram voice chat feature.
+اي شيئ في هذه القناة مجاني ولقادم اعظم سوف تشوف شيئ لاترا في الخارج عزيزي المستخدم ماذا تنتضر ادخل ونصب اي شيئ تريده.
 
-**Assistant :- @{ASSUSERNAME}**""",
+**مطور البوت :- @{ASSUSERNAME}**""",
         reply_markup=InlineKeyboardMarkup(
             [
               [
-                    InlineKeyboardButton("Support 🚶", url=f"https://t.me/{SUPPORT}"),
-                    InlineKeyboardButton("Updates 🤖", url=f"https://t.me/{UPDATE}")
+                    InlineKeyboardButton("🥇 ¦ الــكروب", url=f"https://t.me/{SUPPORT}"),
+                    InlineKeyboardButton("⚙️ ¦ الـسـورس", url=f"https://t.me/{UPDATE}")
                 ],
-            [InlineKeyboardButton("Make Your Own Bot", callback_data="cbtuto")],
-            [InlineKeyboardButton("🔙  Back Home", callback_data="cbhome")]]
+            [InlineKeyboardButton("مبرمج السورس", callback_data="cbtuto")],
+            [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbhome")]]
         ),
     )
 
@@ -547,7 +547,7 @@ You can also open this menu through /menu and /settings command.
 **Only admins can use this buttons 📍**""",
         reply_markup=InlineKeyboardMarkup(
             [
-            [InlineKeyboardButton("🔙  رجـــوع", callback_data="cbcmnds")]]
+            [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbcmnds")]]
         ),
     )
 
@@ -571,7 +571,7 @@ async def cbguide(_, query: CallbackQuery):
         reply_markup=InlineKeyboardMarkup(
             [[
               InlineKeyboardButton("المـــســــاعد", callback_data="cberror")],
-              [InlineKeyboardButton("🔙  رجــــوع", callback_data="cbhome")]]
+              [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbhome")]]
         ),
     )
 
@@ -587,7 +587,7 @@ async def cberror(_, query: CallbackQuery):
             [
                     InlineKeyboardButton("الحــساب المساعد", url=f"https://t.me/{ASSUSERNAME}")
                 ],
-              [InlineKeyboardButton("🔙  رجــــوع", callback_data="cbguide")]]
+              [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbguide")]]
         ),
     )
 
@@ -608,7 +608,7 @@ async def cbtuto(_, query: CallbackQuery):
             [[
                     InlineKeyboardButton("𝐒𝐈𝐅 𝐂𝐎𝐁𝐑𝐀", url=f"https://t.me/QABNADLIB")
                 ],
-              [InlineKeyboardButton("🔙  رجـــوع", callback_data="cbabout")]]
+              [InlineKeyboardButton("🔙 رجـــوع", callback_data="cbabout")]]
         ),
     )
 
