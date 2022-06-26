@@ -135,7 +135,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
             if resp.status == 200:
                 f = await aiofiles.open("background.png", mode="wb")
                 await f.write(await resp.read())
-                await f.مسح()
+                await f.close()
 
     image = Image.open(f"./background.png")
     black = Image.open("etc/black.jpg")
@@ -195,7 +195,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 
 # play
 @Client.on_message(
-    command(["play", f"تشغيل"])
+    command(["play", f"play@{BOT_USERNAME}", "شغل", "تشغيل"])
     & filters.group
     & ~filters.edited
     & ~filters.forwarded
@@ -217,7 +217,7 @@ async def play(_, message: Message):
       
 
         return
-    lel = await message.reply("**🔄 | جـــاري البــــحث...**")
+    lel = await message.reply("**🔄 | Processing...**")
 
     chid = message.chat.id
 
@@ -312,10 +312,10 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("🖥 ¦ الأوامــر", callback_data="cbmenu"),
-            InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
+            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+            InlineKeyboardButton("About 👨🏻‍💻", callback_data="nonabout"),
         ],[
-            InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
+            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -323,7 +323,7 @@ async def play(_, message: Message):
 
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file_path = await cconvert(
+        file_path = await Codexun.tgcalls.convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name))
             else file_name
@@ -353,10 +353,10 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("🖥 ¦ الأوامــر", callback_data="cbmenu"),
-            InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
+            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
+            InlineKeyboardButton("About 👨🏻‍💻", callback_data="nonabout"),
         ],[
-            InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
+            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -397,7 +397,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"Downloading {title[:50]}\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -406,7 +406,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}..\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -416,7 +416,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}...\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -426,7 +426,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}....\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -438,13 +438,13 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**Downloaded** {title[:50]}.....\n\n**الدقايق:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg جـــاري البــــحث__]"
+                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
         loop = asyncio.get_event_loop()
-        x = await loop.run_in_executor(None, download, url, my_hook)
-        file_path = await cconvert(x)
+        x = await loop.run_in_executor(None, youtube.download, url, my_hook)
+        file_path = await Codexun.tgcalls.convert(x)
     else:
         if len(message.command) < 2:
             return await lel.edit(
@@ -485,7 +485,7 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("🖥 ¦ الأوامــر", callback_data="cbmenu"),
+            InlineKeyboardButton("🥇 ¦ الــكروب", callback_data="cbmenu"),
             InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
         ],[
             InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
@@ -561,20 +561,20 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**قاعد ابحث ابشر**\n\n**{title[:50]}...\n\n**الدقايق: {size}**\n■■■■■■■■■■ `100%`\n**يتم التحميل: {taken} sec**\n\n<b>_ جــــاري التشـــغيل...__</b>"
+                    f"**اسم الاغنيه المطلوبه**\n\n**{title[:50]}...\n\n**الدقايق: {size}**\n■■■■■■■■■■ `100%`\n**انتظر من فضلك: {taken} sec**\n\n<b>__يتم التحميل...__</b>"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
         loop = asyncio.get_event_loop()
-        x = await loop.run_in_executor(None, download, url, my_hook)
-        file_path = await cconvert(x)
+        x = await loop.run_in_executor(None, youtube.download, url, my_hook)
+        file_path = await Codexun.tgcalls.convert(x)
 
     if await is_active_chat(message.chat.id):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة: [{}..](https://t.me/codexun)**".format(
+            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة : [{}..](https://t.me/codexun)**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
