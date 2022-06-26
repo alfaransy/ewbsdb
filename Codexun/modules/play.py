@@ -135,7 +135,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
             if resp.status == 200:
                 f = await aiofiles.open("background.png", mode="wb")
                 await f.write(await resp.read())
-                await f.close()
+                await f.مسح()
 
     image = Image.open(f"./background.png")
     black = Image.open("etc/black.jpg")
@@ -195,7 +195,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 
 # play
 @Client.on_message(
-    command(["play", f"play@{BOT_USERNAME}"])
+    command(["play", f"تشغيل"])
     & filters.group
     & ~filters.edited
     & ~filters.forwarded
@@ -217,7 +217,7 @@ async def play(_, message: Message):
       
 
         return
-    lel = await message.reply("**🔄 | Processing...**")
+    lel = await message.reply("**🔄 | جـــاري البــــحث...**")
 
     chid = message.chat.id
 
@@ -312,10 +312,10 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="nonabout"),
+            InlineKeyboardButton("🖥 ¦ الأوامــر", callback_data="cbmenu"),
+            InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
         ],[
-            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
+            InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -353,10 +353,10 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="nonabout"),
+            InlineKeyboardButton("🖥 ¦ الأوامــر", callback_data="cbmenu"),
+            InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
         ],[
-            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
+            InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -397,7 +397,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"Downloading {title[:50]}\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -406,7 +406,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**Downloading** {title[:50]}..\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -416,7 +416,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**Downloading** {title[:50]}...\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -426,7 +426,7 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**Downloading** {title[:50]}....\n\n**الدقايق:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
                             )
                         print(
                             f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
@@ -438,7 +438,7 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
+                    f"**Downloaded** {title[:50]}.....\n\n**الدقايق:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg جـــاري البــــحث__]"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
@@ -485,10 +485,10 @@ async def play(_, message: Message):
     [
         
        [
-            InlineKeyboardButton("⚙️ Manage", callback_data="cbmenu"),
-            InlineKeyboardButton("About 👨🏻‍💻", callback_data="nonabout"),
+            InlineKeyboardButton("🖥 ¦ الأوامــر", callback_data="cbmenu"),
+            InlineKeyboardButton("⚙️ ¦ الـسـورس", callback_data="nonabout"),
         ],[
-            InlineKeyboardButton("Close 🗑️", callback_data="cls"),
+            InlineKeyboardButton("مسح 🗑️", callback_data="cls"),
         ],
         
     ]
@@ -561,7 +561,7 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**Downloaded Successfully**\n\n**{title[:50]}...\n\n**FileSize: {size}**\n■■■■■■■■■■ `100%`\n**Time Taken: {taken} sec**\n\n<b>__FFmpeg processing...__</b>"
+                    f"**قاعد ابحث ابشر**\n\n**{title[:50]}...\n\n**الدقايق: {size}**\n■■■■■■■■■■ `100%`\n**يتم التحميل: {taken} sec**\n\n<b>_ جــــاري التشـــغيل...__</b>"
                 )
                 print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
 
@@ -574,7 +574,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**[Get Additional Information 💡]({})**\n\n**⑆ User :** **{}**\n**⑆ Group : [{}..](https://t.me/codexun)**".format(
+            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة: [{}..](https://t.me/codexun)**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
@@ -600,7 +600,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**[Get Additional Information 💡]({})**\n\n**⑆ User :** **{}**\n**⑆ Group : [{}..](https://t.me/codexun)**".format(
+            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة : [{}..](https://t.me/codexun)**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )

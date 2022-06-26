@@ -109,7 +109,7 @@ fifth_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200% 🔊", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="⬅️ رجـــوع", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -131,7 +131,7 @@ fourth_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="⬅️ رجـــوع", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -153,7 +153,7 @@ third_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="⬅️ رجـــوع", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -175,7 +175,7 @@ second_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="⬅️ رجـــوع", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -197,7 +197,7 @@ first_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton("200%", callback_data="fifth"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="⬅️ رجــــوع", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -211,8 +211,8 @@ highquality_keyboard = InlineKeyboardMarkup(
         ],[   InlineKeyboardButton("High Quality ✅", callback_data="high"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
-            InlineKeyboardButton(text="Close 🗑️", callback_data=f"cls"),
+            InlineKeyboardButton(text="⬅️ رجــوع", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="مسح 🗑️", callback_data=f"cls"),
         ],
     ]
 )
@@ -226,8 +226,8 @@ lowquality_keyboard = InlineKeyboardMarkup(
         ],[   InlineKeyboardButton("High Quality", callback_data="high"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
-            InlineKeyboardButton(text="Close 🗑️", callback_data=f"cls"),
+            InlineKeyboardButton(text="⬅️ رجـــوع", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="مسح 🗑️", callback_data=f"cls"),
         ],
     ]
 )
@@ -241,8 +241,8 @@ mediumquality_keyboard = InlineKeyboardMarkup(
         ],[   InlineKeyboardButton("High Quality", callback_data="high"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
-            InlineKeyboardButton(text="Close 🗑️", callback_data=f"cls"),
+            InlineKeyboardButton(text="⬅️ رجــوع", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="مسح 🗑️", callback_data=f"cls"),
         ],
     ]
 )
@@ -255,7 +255,7 @@ dbclean_keyboard = InlineKeyboardMarkup(
         [    InlineKeyboardButton("Nope, Cancel !", callback_data="cbmenu"),
             
         ],[
-            InlineKeyboardButton(text="⬅️ Back", callback_data=f"cbmenu"),
+            InlineKeyboardButton(text="⬅️ رجوع", callback_data=f"cbmenu"),
         ],
     ]
 )
@@ -275,7 +275,7 @@ menu_keyboard = InlineKeyboardMarkup(
             InlineKeyboardButton(text="CleanDB", callback_data=f"dbconfirm"),
              InlineKeyboardButton(text="About", callback_data=f"nonabout"),
         ],[
-             InlineKeyboardButton(text="🗑️ Close Menu", callback_data=f"cls"),
+             InlineKeyboardButton(text="🗑️ مسح", callback_data=f"cls"),
         ],
     ]
 )
@@ -422,7 +422,7 @@ async def cleandb(_, CallbackQuery):
         f"✅ __Erased queues successfully__\n│\n╰ Database cleaned by {rpk}",
         reply_markup=InlineKeyboardMarkup(
             [
-            [InlineKeyboardButton("Close 🗑️", callback_data="cls")]])
+            [InlineKeyboardButton("مسح 🗑️", callback_data="cls")]])
         
     )
     else:
@@ -434,8 +434,8 @@ async def cbcmnds(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""**{BOT_NAME} Bot Commands 💡**
 
-• /play (song name) 
-- For playing music
+• /play هذا الامر
+- مع اسم الاغنيه لتشغيل
 
 • /pause 
 - For pausing music
@@ -444,7 +444,7 @@ async def cbcmnds(_, query: CallbackQuery):
 - For resuming music
 
 • /skip 
-- For skipping current song
+- لتخطي الاغنيه
 
 • /search (song name) 
 - For searching music
@@ -457,11 +457,11 @@ Powered by **@{UPDATE}** !""",
             [
               [
                     InlineKeyboardButton(
-                        "Menu", callback_data="cbstgs"),
+                        "لاعــليك", callback_data="cbstgs"),
                     InlineKeyboardButton(
-                        "Sudo/Owner", callback_data="cbowncmnds")
+                        "التـــالي", callback_data="cbowncmnds")
                 ],
-              [InlineKeyboardButton("🔙  Back Home", callback_data="cbhome")]]
+              [InlineKeyboardButton("🔙  رجــوع", callback_data="cbhome")]]
         ),
     )
 @Client.on_callback_query(filters.regex("cbowncmnds"))
@@ -496,11 +496,11 @@ async def cbowncmnds(_, query: CallbackQuery):
 • /leaveall 
 - leaving assistant from all chats
 
-Powered by **@{UPDATE}** !""",
+قناة البوت **@{UPDATE}** !""",
         reply_markup=InlineKeyboardMarkup(
             [
               
-              [InlineKeyboardButton("🔙  Back Home", callback_data="cbcmnds")]]
+              [InlineKeyboardButton("🔙  رجـــوع", callback_data="cbcmnds")]]
         ),
     )
 
@@ -529,7 +529,7 @@ This bot helps you to play music, to search music from youtube and to download m
 @Client.on_callback_query(filters.regex("cbstgs"))
 async def cbstgs(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**About Menu Buttons 💡**
+        f"""**لاعليك بهذا الزر اخرج من هنا 💡**
 
 After you played your song some menu buttons will be comes to manage your music playing on voice chat. They are as follows :
 
@@ -547,7 +547,7 @@ You can also open this menu through /menu and /settings command.
 **Only admins can use this buttons 📍**""",
         reply_markup=InlineKeyboardMarkup(
             [
-            [InlineKeyboardButton("🔙  Back Home", callback_data="cbcmnds")]]
+            [InlineKeyboardButton("🔙  رجـــوع", callback_data="cbcmnds")]]
         ),
     )
 
@@ -555,23 +555,23 @@ You can also open this menu through /menu and /settings command.
 @Client.on_callback_query(filters.regex("cbguide"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Read Basic Guide Carefully 💡**
+        f"""**اهلا بك عزيزي 💡**
 
-• First add this bot in your group
+• ان واجهة مشكلة لي البوت
 
-• Make a bot admin
+• عليك فقط ارسال امر تحديث
 
-• Give needed admin permission
+• لكي تتحدث قاعة البيانات
 
-• Type /reload in your group
+• هذا الامر /reload لكي يتحدث البوت
 
-• Start your groups voice chat
+• وبعد ذالك عليك سوا ارسال 
 
-• Now play your song and enjoy !""",
+• هذه play مع اسم الاغنيه يتم التشغيل !""",
         reply_markup=InlineKeyboardMarkup(
             [[
-              InlineKeyboardButton("Common Error", callback_data="cberror")],
-              [InlineKeyboardButton("🔙  Back Home", callback_data="cbhome")]]
+              InlineKeyboardButton("المـــســــاعد", callback_data="cberror")],
+              [InlineKeyboardButton("🔙  رجــــوع", callback_data="cbhome")]]
         ),
     )
 
@@ -579,15 +579,15 @@ async def cbguide(_, query: CallbackQuery):
 @Client.on_callback_query(filters.regex("cberror"))
 async def cberror(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Mostly Faced Errors 💡**
+        f"""**اهلا بك في زر حساب المساعد**
 
-mostly, there wiil be the main error about to music assistant. If you are facing any type of error in your group then that time first make sure @{ASSUSERNAME} is available in your group. If not then add it manually and before that make sure also it is not banned in ur chat.\n\n**Assistant :- @{ASSUSERNAME}**\n\n**Thanks !**""",
+اهلا انهو حساب المساعد لبوت الاغاني اضف البوت وقم بكتابة انضم لكي يدخل المساعد الى مجموعتك @{ASSUSERNAME} ان لم يدخل تأكد ان ليس هناك حظر او تقييد لحساب المساعد في مجموعتك ان كلشيئ على مايرام تواصل مع مبرمج السورس.\n\n**معرف حساب المساعد:- @{ASSUSERNAME}**\n\n**شكرأ لقرائتك !**""",
         reply_markup=InlineKeyboardMarkup(
             [
             [
-                    InlineKeyboardButton("Assistant 🙋🏻‍♂️", url=f"https://t.me/{ASSUSERNAME}")
+                    InlineKeyboardButton("الحــساب المساعد", url=f"https://t.me/{ASSUSERNAME}")
                 ],
-              [InlineKeyboardButton("🔙  Back Home", callback_data="cbguide")]]
+              [InlineKeyboardButton("🔙  رجــــوع", callback_data="cbguide")]]
         ),
     )
 
@@ -595,48 +595,48 @@ mostly, there wiil be the main error about to music assistant. If you are facing
 @Client.on_callback_query(filters.regex("cbtuto"))
 async def cbtuto(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Make Your Own Bot Like this💡**
+        f"""**اهلا بك في زر مبرمج السورس 💡**
 
-Good news! Now you can allow to make your own music bot like to this one. You will be get repo link below just click on it and follow steps!
+يمــــكنك التـــواصل مــــع مبــــرمـــج الســـورس فــــي اي وقـــت تنصـــيب بــــوتات ميـــوزك وغـــيرها بــــيع كـــافة المـــلفات!
 
-If you didn't know how to make your own bot then contact us at @TeamCodexun and get help from us.
+عــــزيزي القـــارئ يمــــنك تــــنصيب بــــوتات على ســـورســــنا مــــجاني ولــــدينا مــــدفوعه قنــاة الســــورس فـــي الاســـفل.
 
-**🔗 Repo Link : https://github.com/PavanMagar/CodexunMusicBot**
+**🔗 قنــاة الســـورس : https://t.me/VFF35**
 
-**Thanks !""",
+**شكرا لك !""",
        reply_markup=InlineKeyboardMarkup(
             [[
-                    InlineKeyboardButton("Get Repo 📦", url=f"https://github.com/PavanMagar/CodexunMusicBot")
+                    InlineKeyboardButton("𝐒𝐈𝐅 𝐂𝐎𝐁𝐑𝐀", url=f"https://t.me/QABNADLIB")
                 ],
-              [InlineKeyboardButton("🔙  Back Home", callback_data="cbabout")]]
+              [InlineKeyboardButton("🔙  رجـــوع", callback_data="cbabout")]]
         ),
     )
 
 @Client.on_callback_query(filters.regex("cbhome"))
 async def cbhome(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Welcome [{query.message.chat.first_name}](tg://user?id={query.message.chat.id})** 👋
+        f"""هلا بك ماهذا النور {message.from_user.mention()}** 👋
 
-This is the **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) bot,** a bot for playing high quality and unbreakable music in your groups voice chat.
+انا اقوا بوت متطور لتشغيل الاغاني في المكالمات الصوتية بصوت رائع وبدون تقطيع يمكنك اضافتي الى مجموعتك وترقيتي كمشرف.
 
-Just add me to your group & make as a admin with needed admin permissions to perform a right actions, now let's enjoy your music!
+اعطني ڪامل الصلاحيات لكي اعمل بشكل صحيح عزيزي عليك الضغط على زر الاوامر لمعرفة طريقة تشغيلي شكرا لك!
 
-Use the given buttons for more 📍""",
+كل الشكر والاحترام لمن قام بأضافة بوتاتنا 📍""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Commands", callback_data="cbcmnds"),
+                        "🖥 ¦ الأوامــر", callback_data="cbcmnds"),
                     InlineKeyboardButton(
-                        "About", callback_data="cbabout")
+                        "⚙️ ¦ الـسـورس", callback_data="https:/t.me/VFF35")
                 ],
                 [
                     InlineKeyboardButton(
-                        "Basic Guide", callback_data="cbguide")
+                        "🧨 ¦ دلـيل الاسـتخـدام", callback_data="cbguide")
                 ],
                 [
                     InlineKeyboardButton(
-                        "✚ Add Bot in Your Group ✚", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "🎯 ¦ اضـفـني لـي مـجمـوعـتك ¦ 🎯", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ]
                 
            ]
@@ -856,14 +856,14 @@ async def first(_, CallbackQuery):
 @Client.on_callback_query(filters.regex("nonabout"))
 async def nonabout(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""**Here is the some basic information about to {BOT_NAME},From here you can simply contact us and can join us!**""",
+        f"""**اهلا بك في ازرار كروب السورس وقناة السورس شكرا لكم اعزائي الكرام لقرائتكم بوتاتنا الافضل والاقوى!**""",
         reply_markup=InlineKeyboardMarkup(
             [
               [
-                    InlineKeyboardButton("Support 🚶", url=f"https://t.me/{SUPPORT}"),
-                    InlineKeyboardButton("Updates 🤖", url=f"https://t.me/{UPDATE}")
+                    InlineKeyboardButton("🥇 ¦ الــكروب", url=f"https://t.me/{SUPPORT}"),
+                    InlineKeyboardButton("⚙️ ¦ الـسـورس", url=f"https://t.me/{UPDATE}")
                 ],
-              [InlineKeyboardButton("🔙  Back Menu", callback_data="cbmenu")]]
+              [InlineKeyboardButton("🔙 رجــــوع", callback_data="cbmenu")]]
         ),
     )
 

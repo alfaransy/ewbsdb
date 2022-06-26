@@ -28,7 +28,7 @@ async def start_(client: Client, message: Message):
                     InlineKeyboardButton(
                         "🖥 ¦ الأوامــر", callback_data="cbcmnds"),
                     InlineKeyboardButton(
-                        "⚙️ ¦ الـسـورس", callback_data="https://t.me/VFF35")
+                        "⚙️ ¦ الـسـورس", callback_data="cbabout")
                 ],
                 [
                     InlineKeyboardButton(
