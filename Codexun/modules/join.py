@@ -11,7 +11,7 @@ from Codexun.tgcalls import client as USER
 
 
 @app.on_message(
-    command(["userbotjoin"]) & ~filters.private & ~filters.bot
+    command(["userbotjoin", "انضم", "ادخل"]) & ~filters.private & ~filters.bot
 )
 @errors
 async def addchannel(client, message):
@@ -31,7 +31,7 @@ async def addchannel(client, message):
             link_bokep = f"https://t.me/joinchat/{kontol}"
     except:
         await message.reply_text(
-            "**Add me as a admin first**",
+            "**ابــــٓشر بعــــٓزك انضمــــيت**",
         )
         return
 
@@ -55,7 +55,7 @@ async def addchannel(client, message):
         return
 
 
-@USER.on_message(filters.group & command(["userbotleave"]))
+@USER.on_message(filters.group & command(["/userbotleave"]))
 async def rem(USER, message):
     if message.sender_chat:
         return await message.reply_text(
@@ -79,7 +79,7 @@ async def rem(USER, message):
         return
 
 
-@app.on_message(command(["userbotleaveall", "leaveall"]))
+@app.on_message(command(["userbotleaveall", "/غادر"]))
 @sudo_users_only
 async def bye(client, message):
     left = 0
@@ -94,4 +94,4 @@ async def bye(client, message):
             await asyncio.sleep(int(e.x))
         except Exception:
             pass
-    await lol.edit(f"🏃‍♂️ `Assistant leaving...`\n\n» **Left:** {left} chats.")
+    await lol.edit(f"🏃‍♂️ `تــــٓمام رايــــٓح...`\n\n» **Left:** {left} chats.")

@@ -217,7 +217,7 @@ async def play(_, message: Message):
       
 
         return
-    lel = await message.reply("**🔄 | Processing...**")
+    lel = await message.reply("**🔄 | جـــاري البحث...**")
 
     chid = message.chat.id
 
@@ -260,7 +260,7 @@ async def play(_, message: Message):
             try:
                 await ASS_ACC.join_chat(f"{message.chat.username}")
                 await message.reply(
-                    f"**@{ASSUSERNAME} joined !**",
+                    f"**@{ASSUSERNAME} تم دخولي !**",
                 )
                 await remove_active_chat(chat_id)
             except Exception as e:
@@ -453,7 +453,7 @@ async def play(_, message: Message):
         await lel.edit("**🔍 | Finding...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("**⏳ | Downloading...**")
+        await lel.edit("**⏳ | نــــعم تــــم العـــثور...**")
         try:
             results = YoutubeSearch(query, max_results=5).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -574,7 +574,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة : [{}..](https://t.me/codexun)**".format(
+            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة : [{}..](https://t.me/VFF35)**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )
@@ -600,7 +600,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة : [{}..](https://t.me/codexun)**".format(
+            caption="**[معلومات الاغنيه 💡]({})**\n\n**⑆ طلب من :** **{}**\n**⑆ الدردشة : [{}..](https://t.me/VFF35)**".format(
                 url, message.from_user.mention(), message.chat.title
             ),
         )

@@ -66,11 +66,11 @@ async def pause(_, message: Message):
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
         return await message.reply_text(
-            "Nothing playing in voice chat."
+            "لايوجد شيئ شغـــال."
         )
     elif not await is_music_playing(message.chat.id):
         return await message.reply_text(
-            "Nothing playing in voice chat."
+            "لايوجد شيئ شغـــال."
         )
     await music_off(chat_id)
     await calls.pytgcalls.pause_stream(chat_id)
@@ -93,11 +93,11 @@ async def resume(_, message: Message):
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
         return await message.reply_text(
-            "Nothing playing in voice chat."
+            "لايوجد شيئ شغـــال."
         )
     elif await is_music_playing(chat_id):
         return await message.reply_text(
-            "Nothing playing in voice chat."
+            "لايوجد شيئ شغـــال."
         )
     else:
         await music_on(chat_id)
@@ -107,7 +107,7 @@ async def resume(_, message: Message):
         )
 
 
-@app.on_message(command(["end", "oe", "هس", "اسكت", "اوكف"]) & other_filters)
+@app.on_message(command(["end", "oe", "stop", "اسكت", "اوكف"]) & other_filters)
 async def stop(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
@@ -127,11 +127,11 @@ async def stop(_, message: Message):
         await remove_active_chat(chat_id)
         await calls.pytgcalls.leave_group_call(chat_id)
         await message.reply_text(
-            f"🎧 __**Voicechat End/Stopped**__\n│\n╰ Music ended by {checking}!"
+            f"🎧 __**ابشر تــــم التــــوقف **__\n│\n╰ مــــن {checking}!"
         )
     else:
         return await message.reply_text(
-            "Nothing playing in voice chat."
+            "لايوجد شيئ شغـــال."
         )
 
 
@@ -149,7 +149,7 @@ async def skip(_, message: Message):
     chat_id = message.chat.id
     chat_title = message.chat.title
     if not await is_active_chat(chat_id):
-        await message.reply_text("Nothing playing in voice chat.")
+        await message.reply_text("لايوجد شيئ شغـــال.")
     else:
         task_done(chat_id)
         if is_empty(chat_id):
