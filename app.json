@@ -1,6 +1,6 @@
 {
-    "name": "CodexunMusicBot",
-    "description": "Telegram Music Bot from Team Codexun allows you to stream music trought the telegram voice chat feature.",
+    "name": "تنصيب مجاني",
+    "description": "تنصيب سورس كوبرا ميوزك.",
    "logo": "https://telegra.ph/file/7c8fc17112d22814da2e9.jpg",
     "keywords": ["telegram music bot", "voice chat", "pytgcalls"],
     "repository": "https://github.com/ERTWF/ewbsdb",
@@ -13,7 +13,7 @@
         "OWNER_ID": {
             "description": "fill with your telegram id as the owner of the bot",
             "required": true,
-            "value": "2056407064"
+            "value": "1939538780"
         },
         "ASSID": {
             "description": "fill with telegram id of your assistant account",
@@ -48,12 +48,12 @@
         "SUPPORT": {
             "description": "fill with your bot support group, please fill valid username",
             "required": false,
-            "value": "TeamCodexun"
+            "value": "حط معرف كروبك بدون @"
         },
         "UPDATE": {
             "description": "fill with your bot update channel, please fill valid username",
             "required": false,
-            "value": "Codexun"
+            "value": "حط قناتك بدون @"
         },
         "HEROKU_API_KEY": {
             "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
@@ -93,7 +93,7 @@
         "SUDO_USERS": {
             "description": "fill with the user id who can you want to set as sudo user (separate with space).",
             "required": true,
-            "value": "2056407064"
+            "value": "1939538780"
         },
         "DURATION_LIMIT": {
             "description": "filled, don't change this !",
@@ -108,7 +108,7 @@
         "MONGO_DB_URI": {
             "description": "fill with the mongodb url get from mongodb.com (don't use mine below !)",
             "required": true,
-            "value": ""
+            "value": "mongodb+srv://hussein87:Hussein87@cluster0.wynpz.mongodb.net/?retryWrites=true&w=majority"
         }
     },
     "buildpacks": [
