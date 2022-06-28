@@ -1,9 +1,9 @@
 {
     "name": "تنصيب مجاني",
-    "description": "تنصيب سورس كوبرا ميوزك.",
+    "description": "تنصيب سورس الريس علش ميوزك.",
    "logo": "https://telegra.ph/file/7c8fc17112d22814da2e9.jpg",
     "keywords": ["telegram music bot", "voice chat", "pytgcalls"],
-    "repository": "https://github.com/ERTWF/ewbsdb",
+    "repository": "https://github.com/alfaransy/Sources1",
     "stack": "container",
     "env": {
         "SESSION_NAME": {
@@ -48,12 +48,12 @@
         "SUPPORT": {
             "description": "fill with your bot support group, please fill valid username",
             "required": false,
-            "value": "حط معرف كروبك بدون @"
+            "value": "حط معرف كروبك بدون @xb_bk"
         },
         "UPDATE": {
             "description": "fill with your bot update channel, please fill valid username",
             "required": false,
-            "value": "حط قناتك بدون @"
+            "value": "حط قناتك بدون @xb_bp"
         },
         "HEROKU_API_KEY": {
             "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
